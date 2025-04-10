@@ -17,7 +17,7 @@ if 'correct_word' not in st.session_state:
     st.session_state.correct_word = random.choice(list(image_dict.keys()))
 
 # Show the word to the user
-st.subheader(f"🔤 Match the word: **{st.session_state.correct_word}**")
+#st.subheader(f"🔤 Match the word: **{st.session_state.correct_word}**")
 
 # Show all images with radio buttons
 choices = list(image_dict.keys())
