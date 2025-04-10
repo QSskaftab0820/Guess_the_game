@@ -1,35 +1,42 @@
 import streamlit as st
 import random
 
-st.title("🧠 Image Prediction Demo")
-st.write("Choose an image and see if it's the correct one!")
-
-# Sample images (replace these with your own URLs or paths)
-images = {
-    "Cat": "https://placekitten.com/200/200",
-    "Dog": "https://placedog.net/200/200?id=1",
-    "Parrot": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Ara_ararauna_Luc_Viatour.jpg/200px-Ara_ararauna_Luc_Viatour.jpg",
-    "Horse": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Horse_in_Love_Valley%2C_Turkey.jpg/200px-Horse_in_Love_Valley%2C_Turkey.jpg"
+# Word-to-image mapping (you can customize or expand this)
+image_dict = {
+    "Dog": "https://th.bing.com/th/id/OIP.sweV5y8OvabQrCD2IMdYJgHaFj?rs=1&pid=ImgDetMain",
+    "Cat": "https://th.bing.com/th/id/OIP.TzP2op3lkhlTh6oOHamacAHaHa?w=249&h=249&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
+    "Parrot": "https://img.freepik.com/premium-photo/colorful-parrot-sitting-branch-forest_871710-24980.jpg",
+    "Horse": "https://th.bing.com/th/id/OIP.Xw9TPYUwQnVXJEfK4CVm4AHaJQ?w=1384&h=1730&rs=1&pid=ImgDetMain"
 }
 
-# Randomly choose the correct answer
-if 'correct_choice' not in st.session_state:
-    st.session_state.correct_choice = random.choice(list(images.keys()))
+st.title("🧠 Word-to-Image Prediction Game")
+st.write("Match the word with the correct image!")
 
-# Show images with radio buttons
-user_choice = st.radio("Which one do you think is the correct image?", list(images.keys()), index=0)
+# Pick a random word as the question
+if 'correct_word' not in st.session_state:
+    st.session_state.correct_word = random.choice(list(image_dict.keys()))
 
-st.image(images[user_choice], caption=user_choice, use_column_width=True)
+# Show the word to the user
+st.subheader(f"🔤 Match the word: **{st.session_state.correct_word}**")
 
-# Submit button
-if st.button("Predict"):
-    if user_choice == st.session_state.correct_choice:
-        st.success(f"🎉 Correct! {user_choice} is the right image.")
+# Show all images with radio buttons
+choices = list(image_dict.keys())
+user_choice = st.radio("Which image matches the word?", choices, index=0)
+
+st.image(image_dict[user_choice], caption=user_choice, use_container_width =True)
+
+# Check answer
+if st.button("Submit Guess"):
+    if user_choice == st.session_state.correct_word:
+        st.success("🎉 Correct! Well done.")
     else:
-        st.error(f"❌ Nope! The correct answer was {st.session_state.correct_choice}.")
-        st.image(images[st.session_state.correct_choice], caption="Correct Image", use_column_width=True)
+        st.error(f"❌ Nope! The correct answer was {st.session_state.correct_word}")
+        st.image(image_dict[st.session_state.correct_word], caption="Correct Image", use_container_width =True)
 
-# Option to play again
-if st.button("Try Another Round"):
-    st.session_state.correct_choice = random.choice(list(images.keys()))
-    st.experimental_rerun()
+# Play again
+if st.button("Play Again"):
+    # st.session_state.correct_word = random.choice(list(image_dict.keys()))
+    st.write("Game Over!")
+    st.write("Would you like to play again? if yes click the refresh .")
+
+
