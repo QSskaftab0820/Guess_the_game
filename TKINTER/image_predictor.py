@@ -6,7 +6,7 @@ image_dict = {
     "Dog": "https://th.bing.com/th/id/OIP.sweV5y8OvabQrCD2IMdYJgHaFj?rs=1&pid=ImgDetMain",
     "Cat": "https://th.bing.com/th/id/OIP.bqgfufo9kLtOXC05vNmfagAAAA?rs=1&pid=ImgDetMain",
     "Parrot": "https://img.freepik.com/premium-photo/colorful-parrot-sitting-branch-forest_871710-24980.jpg",
-    "Horse": "https://th.bing.com/th/id/OIP.Xw9TPYUwQnVXJEfK4CVm4AHaJQ?w=1384&h=1730&rs=1&pid=ImgDetMain"
+    "Horse": "https://st3.depositphotos.com/3220873/33838/i/600/depositphotos_338380278-stock-photo-white-stallion-standing-stipa-grass.jpg"
 }
 
 st.title("🧠 Guess-the-Image-among these options")
