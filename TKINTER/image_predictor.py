@@ -29,7 +29,6 @@ st.image(image_dict[user_choice], caption=user_choice, use_container_width =True
 if st.button("Submit Guess"):
     if user_choice == st.session_state.correct_word:
         st.success("🎉 Correct! Well done.")
-        st.bullons()
     else:
         st.error(f"❌ Nope! The correct answer was {st.session_state.correct_word}")
         st.image(image_dict[st.session_state.correct_word], caption="Correct Image", use_container_width =True)
