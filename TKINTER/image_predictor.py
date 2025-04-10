@@ -21,7 +21,7 @@ if 'correct_word' not in st.session_state:
 
 # Show all images with radio buttons
 choices = list(image_dict.keys())
-user_choice = st.radio("Which image you think that machine predicted at this time?", choices, index=0)
+user_choice = st.radio("Which image you think that machine predicted at this time?", choices)#, index=0)
 
 st.image(image_dict[user_choice], caption=user_choice, use_container_width =True)
 
