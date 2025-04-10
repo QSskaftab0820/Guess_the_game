@@ -9,8 +9,8 @@ image_dict = {
     "Horse": "https://th.bing.com/th/id/OIP.Xw9TPYUwQnVXJEfK4CVm4AHaJQ?w=1384&h=1730&rs=1&pid=ImgDetMain"
 }
 
-st.title("🧠 Word-to-Image Prediction Game")
-st.write("Match the word with the correct image!")
+st.title("🧠 Guess-the-Image-among these options")
+st.write("Match the Machine_prediction by Guessing the correct image!")
 
 # Pick a random word as the question
 if 'correct_word' not in st.session_state:
