@@ -35,8 +35,9 @@ if st.button("Submit Guess"):
 
 # Play again
 if st.button("Play Again"):
-    # st.session_state.correct_word = random.choice(list(image_dict.keys()))
-    st.write("Game Over!")
-    st.write("Would you like to play again? if yes click the refresh .")
+    for key in list(st.session_state.keys()):
+        del st.session_state[key]  # Clear session state
+    st.rerun()  # Force rerun
+
 
 
